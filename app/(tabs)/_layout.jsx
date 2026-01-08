@@ -18,6 +18,7 @@ export default function TabLayout() {
             borderRadius: 40,
             height: 70,
             paddingTop: 15,
+            elevation: 0,
             position: "absolute",
           },
           headerShown: false,
