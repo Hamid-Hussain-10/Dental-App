@@ -14,7 +14,7 @@ const FirstScreen = () => {
         <Image
           source={require("../assets/images/screen-image.png")}
           style={styles.bgImage}
-          resizeMode="contain"
+          resizeMode="cover"
         />
 
         <View style={styles.textContainer}>
@@ -39,7 +39,6 @@ export default FirstScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f2f3f3",
   },
   bgImage: {
     width: "100%",
