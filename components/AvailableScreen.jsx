@@ -1,72 +1,87 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  ScrollView,
-} from "react-native";
+import { StyleSheet, Text, View, Image, ScrollView } from "react-native";
 import React from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { LinearGradient } from "expo-linear-gradient";
+
 import Categories from "../components/Categories";
 import SuggestedDoctors from "../components/SuggestedDoctors";
 
 export default function AvailableScreen() {
   return (
-    <ScrollView
-      style={styles.container}
-      showsVerticalScrollIndicator={false}
+    <LinearGradient
+      colors={["#6bbbbd", "#ffffff"]}
+      locations={[0.1, 1]}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 0, y: 1 }}
+      style={styles.gradient}
     >
-      <Text style={styles.heading}>Next Appointment</Text>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.scrollContent}
+      >
+        <Text style={styles.heading}>Next Appointment</Text>
 
-      <View style={styles.card}>
-        <View style={styles.leftBg} />
+        {/* Appointment Card */}
+        <View style={styles.card}>
+          <View style={styles.leftBg} />
 
-        <View style={styles.content}>
-          <View style={styles.leftSection}>
-            <View style={styles.imageWrapper}>
-              <Image
-                source={require("../assets/images/calender.png")}
-                style={styles.image}
-                resizeMode="contain"
-              />
+          <View style={styles.content}>
+            <View style={styles.leftSection}>
+              <View style={styles.imageWrapper}>
+                <Image
+                  source={require("../assets/images/calender.png")}
+                  style={styles.image}
+                  resizeMode="contain"
+                />
+              </View>
+
+              <View style={styles.textContainer}>
+                <Text style={styles.doctor}>Dr. John Khan</Text>
+                <Text style={styles.date}>January 09</Text>
+                <Text style={styles.time}>10:20 am</Text>
+              </View>
             </View>
 
-            <View style={styles.textContainer}>
-              <Text style={styles.doctor}>Dr. John Khan</Text>
-              <Text style={styles.date}>January 09</Text>
-              <Text style={styles.time}>10:20 am</Text>
+            <View style={styles.iconCircle}>
+              <FontAwesome name="angle-right" size={20} color="#121111" />
             </View>
-          </View>
-
-          <View style={styles.iconCircle}>
-            <FontAwesome name="angle-right" size={20} color="#121111" />
           </View>
         </View>
-      </View>
 
-      <View style={styles.categories}>
-        <Categories />
-      </View>
+        {/* Categories */}
+        <View style={styles.categories}>
+          <Categories />
+        </View>
 
-      <View style={styles.suggestedDoctors}>
-        <SuggestedDoctors />
-      </View>
-    </ScrollView>
+        {/* Suggested Doctors */}
+        <View style={styles.suggestedDoctors}>
+          <SuggestedDoctors />
+        </View>
+      </ScrollView>
+    </LinearGradient>
   );
 }
 
+/* ---------------- STYLES ---------------- */
+
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "#4CB2B3",
-    padding: 6,
+  gradient: {
+    flex: 1,
+  },
+
+  scrollContent: {
+    flexGrow: 1,
+    paddingHorizontal: 6,
+    paddingBottom: 40,
   },
 
   heading: {
     fontSize: 20,
     fontWeight: "600",
-    color: "#010101",
+    color: "#151414",
     marginBottom: 12,
-    marginLeft: 6,
+    marginTop: 10,
+    marginLeft: 4,
   },
 
   card: {
@@ -82,7 +97,7 @@ const styles = StyleSheet.create({
     top: -10,
     width: 140,
     height: 170,
-    backgroundColor: "#2ec4b6",
+    backgroundColor: "#38e5d4",
     transform: [{ skewY: "-15deg" }],
     borderRightWidth: 3,
     borderRightColor: "#a1b616",
@@ -92,7 +107,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    padding: 16,
+    padding: 18,
   },
 
   leftSection: {
@@ -146,11 +161,10 @@ const styles = StyleSheet.create({
   },
 
   categories: {
-    marginBottom: 30,
+    marginBottom: 25,
   },
 
   suggestedDoctors: {
     paddingBottom: 30,
   },
 });
-

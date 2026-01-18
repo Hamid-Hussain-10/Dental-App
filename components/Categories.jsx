@@ -80,29 +80,34 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+
   content: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
   },
+
   heading: {
     fontSize: 20,
     fontWeight: "600",
     color: "#010101",
-    marginBottom: 10,
+    marginBottom: 16,
   },
+
   SeeAll: {
     fontSize: 16,
     fontWeight: "500",
     color: "#454242",
-    marginBottom: 10,
+    marginBottom: 16,
   },
+
   categoriesContainer: {
     backgroundColor: "#ffffff",
-    paddingHorizontal: 8,
+    paddingHorizontal: 10,
     paddingVertical: 24,
     borderRadius: 24,
   },
+
   list: {
     width: 50,
     height: 50,

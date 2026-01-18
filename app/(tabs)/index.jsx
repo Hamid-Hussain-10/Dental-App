@@ -2,45 +2,52 @@ import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { LinearGradient } from "expo-linear-gradient";
 import AvailabilityTabs from "../../components/AvailabilityTabsNavigator ";
 
 export default function Index() {
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.headerContainer}>
-        {/* Left section */}
-        <View style={styles.leftSection}>
+    <LinearGradient
+      colors={["#4CB2B3", "#ffffff"]}
+      locations={[0.1, 1]}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 0, y: 1 }}
+      style={{ flex: 1 }}
+    >
+      <SafeAreaView style={styles.container}>
+        <View style={styles.headerContainer}>
+          {/* Left section */}
+          <View style={styles.leftSection}>
+            <View style={styles.iconCircle}>
+              <FontAwesome name="calendar" size={18} color="#121111" />
+            </View>
+
+            <View style={styles.textContainer}>
+              <Text style={styles.label}>Today</Text>
+              <Text style={styles.date}>January 08, 2026</Text>
+            </View>
+          </View>
+
+          {/* Right icon */}
           <View style={styles.iconCircle}>
-            <FontAwesome name="calendar" size={18} color="#121111" />
-          </View>
-
-          <View style={styles.textContainer}>
-            <Text style={styles.label}>Today</Text>
-            <Text style={styles.date}>January 08, 2026</Text>
+            <FontAwesome name="bell" size={18} color="#121111" />
           </View>
         </View>
 
-        {/* Right icon */}
-        <View style={styles.iconCircle}>
-          <FontAwesome name="bell" size={18} color="#121111" />
+        <View style={{ flex: 1 }}>
+          <AvailabilityTabs />
         </View>
-      </View>
-      <View style={{ flex: 1 }}>
-        <AvailabilityTabs />
-      </View>
-
-    </SafeAreaView>
+      </SafeAreaView>
+    </LinearGradient>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#4CB2B3",
     paddingHorizontal: 16,
     paddingVertical: 10,
   },
-  
+
   headerContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
