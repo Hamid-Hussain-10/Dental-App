@@ -116,6 +116,7 @@ const styles = StyleSheet.create({
     padding: 14,
     marginRight: 8,
     width: 310,
+    marginBottom: 25,
   },
 
   detailContainer: {
