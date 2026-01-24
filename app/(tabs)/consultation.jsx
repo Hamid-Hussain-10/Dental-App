@@ -12,8 +12,6 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { LinearGradient } from "expo-linear-gradient";
 import { useRouter } from "expo-router";
 
-/* -------------------- DATA -------------------- */
-
 const doctor = {
   name: "Dr. John Khan",
   specialty: "General Medicine",
@@ -51,7 +49,6 @@ const dentalDoctor = [
   },
 ];
 
-/* -------------------- COMPONENT -------------------- */
 
 export default function Consultation() {
   const router = useRouter();
@@ -166,13 +163,10 @@ export default function Consultation() {
   );
 }
 
-/* -------------------- STYLES -------------------- */
-
 const styles = StyleSheet.create({
   container: {
     paddingBottom: 50,
   },
-
   headContainer: {
     paddingTop: 50,
     paddingBottom: 12,
@@ -181,12 +175,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: 16,
   },
-
   headerText: {
     fontSize: 22,
     fontWeight: "600",
   },
-
   icon: {
     width: 46,
     height: 46,
@@ -195,7 +187,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-
   labResultContainer: {
     flexDirection: "row",
     backgroundColor: "#fff",
@@ -205,7 +196,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 20,
   },
-
   icon1: {
     width: 46,
     height: 46,
@@ -215,14 +205,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginBottom: 8,
   },
-
   sectionTitle: {
     fontSize: 20,
     fontWeight: "600",
     marginLeft: 16,
     marginVertical: 10,
   },
-
   doctorCard: {
     backgroundColor: "#fff",
     marginHorizontal: 12,
@@ -230,7 +218,6 @@ const styles = StyleSheet.create({
     padding: 14,
     marginBottom: 14,
   },
-
   doctorTopRow: {
     flexDirection: "row",
     alignItems: "center",
@@ -249,7 +236,6 @@ const styles = StyleSheet.create({
     borderRadius: 26,
     marginRight: 12,
   },
-
   scheduleRow: {
     flexDirection: "row",
     justifyContent: "space-between",

@@ -91,26 +91,22 @@ const styles = StyleSheet.create({
   container: {
     marginTop: 10,
   },
-
   content: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
     marginBottom: 20,
   },
-
   heading: {
     fontSize: 20,
     fontWeight: "600",
     color: "#010101",
   },
-
   seeAll: {
     fontSize: 16,
     fontWeight: "500",
     color: "#5a5b5b",
   },
-
   card: {
     borderRadius: 20,
     padding: 14,
@@ -118,7 +114,6 @@ const styles = StyleSheet.create({
     width: 310,
     marginBottom: 25,
   },
-
   detailContainer: {
     flexDirection: "row",
     alignItems: "center",
@@ -127,34 +122,28 @@ const styles = StyleSheet.create({
     paddingBottom: 16,
     borderColor: "#d9eae9",
   },
-
   avatar: {
     width: 52,
     height: 52,
     borderRadius: 26,
   },
-
   doctorDetail: {
     flex: 1,
     marginLeft: 12,
   },
-
   name: {
     fontSize: 16,
     fontWeight: "700",
     color: "#fff",
   },
-
   specialty: {
     fontSize: 14,
     marginTop: 2,
     color: "#eefefe",
   },
-
   right: {
     alignItems: "flex-end",
   },
-
   ratingRow: {
     flexDirection: "row",
     alignItems: "center",
@@ -162,14 +151,12 @@ const styles = StyleSheet.create({
     padding: 8,
     borderRadius: 20,
   },
-
   rating: {
     marginLeft: 4,
     fontSize: 13,
     fontWeight: "600",
     color: "#000000",
   },
-
   time: {
     fontSize: 16,
     marginTop: 4,
