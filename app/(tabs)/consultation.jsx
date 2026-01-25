@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
   },
   headerText: {
     fontSize: 22,
-    fontWeight: "600",
+    fontWeight: "500",
   },
   icon: {
     width: 46,
