@@ -1,5 +1,12 @@
-import { StyleSheet, Text, View, Image, ScrollView } from "react-native";
-import React from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  ScrollView,
+  Pressable,
+} from "react-native";
+import React, { useRef, useState } from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { LinearGradient } from "expo-linear-gradient";
 
@@ -7,6 +14,66 @@ import Categories from "../components/Categories";
 import SuggestedDoctors from "../components/SuggestedDoctors";
 
 export default function AvailableScreen() {
+  const scrollRef = useRef(null);
+
+  const formatDate = (dateObj) =>
+    dateObj.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "2-digit",
+    });
+
+  const appointments = [
+    {
+      id: 1,
+      doctor: "Dr. John Khan",
+      date: formatDate(new Date(2026, 0, 9)),
+      time: "09:00 AM",
+    },
+    {
+      id: 2,
+      doctor: "Dr. Ayesha Malik",
+      date: formatDate(new Date(2026, 0, 12)),
+      time: "10:30 AM",
+    },
+    {
+      id: 3,
+      doctor: "Dr. Ali Raza",
+      date: formatDate(new Date(2026, 0, 13)),
+      time: "01:15 PM",
+    },
+    {
+      id: 4,
+      doctor: "Dr. Sarah Ahmed",
+      date: formatDate(new Date(2026, 0, 14)),
+      time: "03:45 PM",
+    },
+    {
+      id: 5,
+      doctor: "Dr. Faraz",
+      date: formatDate(new Date(2026, 0, 15)),
+      time: "06:00 PM",
+    },
+  ];
+
+  const [visibleCount, setVisibleCount] = useState(1);
+  const CARD_WIDTH = 315;
+
+  const showNextAppointment = () => {
+    if (visibleCount < appointments.length) {
+      setVisibleCount((prev) => {
+        const next = prev + 1;
+        setTimeout(() => {
+          scrollRef.current?.scrollTo({
+            x: (next - 1) * CARD_WIDTH,
+            animated: true,
+          });
+        }, 50);
+        return next;
+      });
+    }
+  };
+
   return (
     <LinearGradient
       colors={["#6bbbbd", "#ffffff"]}
@@ -21,39 +88,54 @@ export default function AvailableScreen() {
       >
         <Text style={styles.heading}>Next Appointment</Text>
 
-        {/* Appointment Card */}
-        <View style={styles.card}>
-          <View style={styles.leftBg} />
+        {/* Horizontal Appointment Cards */}
+        <ScrollView
+          horizontal
+          ref={scrollRef}
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.horizontalList}
+        >
+          {appointments.slice(0, visibleCount).map((item, index) => (
+            <View key={item.id} style={styles.card}>
+              <View style={styles.leftBg} />
+              <View style={styles.content}>
+                <View style={styles.leftSection}>
+                  <View style={styles.imageWrapper}>
+                    <Image
+                      source={require("../assets/images/calender.png")}
+                      style={styles.image}
+                      resizeMode="contain"
+                    />
+                  </View>
+                  <View style={styles.textContainer}>
+                    <Text style={styles.doctor}>{item.doctor}</Text>
+                    <Text style={styles.date}>{item.date}</Text>
+                    <Text style={styles.time}>{item.time}</Text>
+                  </View>
+                </View>
 
-          <View style={styles.content}>
-            <View style={styles.leftSection}>
-              <View style={styles.imageWrapper}>
-                <Image
-                  source={require("../assets/images/calender.png")}
-                  style={styles.image}
-                  resizeMode="contain"
-                />
-              </View>
-
-              <View style={styles.textContainer}>
-                <Text style={styles.doctor}>Dr. John Khan</Text>
-                <Text style={styles.date}>January 09</Text>
-                <Text style={styles.time}>10:20 am</Text>
+                {/* Show angle button only on the last visible card */}
+                {index === visibleCount - 1 &&
+                  visibleCount < appointments.length && (
+                    <Pressable
+                      style={styles.iconCircle}
+                      onPress={showNextAppointment}
+                    >
+                      <FontAwesome
+                        name="angle-right"
+                        size={20}
+                        color="#121111"
+                      />
+                    </Pressable>
+                  )}
               </View>
             </View>
+          ))}
+        </ScrollView>
 
-            <View style={styles.iconCircle}>
-              <FontAwesome name="angle-right" size={20} color="#121111" />
-            </View>
-          </View>
-        </View>
-
-        {/* Categories */}
         <View style={styles.categories}>
           <Categories />
         </View>
-
-        {/* Suggested Doctors */}
         <View style={styles.suggestedDoctors}>
           <SuggestedDoctors />
         </View>
@@ -62,18 +144,9 @@ export default function AvailableScreen() {
   );
 }
 
-
 const styles = StyleSheet.create({
-  gradient: {
-    flex: 1,
-  },
-
-  scrollContent: {
-    flexGrow: 1,
-    paddingHorizontal: 6,
-    paddingBottom: 40,
-  },
-
+  gradient: { flex: 1 },
+  scrollContent: { flexGrow: 1, paddingHorizontal: 6, paddingBottom: 40 },
   heading: {
     fontSize: 20,
     fontWeight: "600",
@@ -82,14 +155,14 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginLeft: 4,
   },
-
+  horizontalList: { paddingHorizontal: 6 },
   card: {
     backgroundColor: "#f7f4f4",
     borderRadius: 20,
     overflow: "hidden",
-    marginBottom: 24,
+    marginRight: 10,
+    width: 305,
   },
-
   leftBg: {
     position: "absolute",
     left: -40,
@@ -101,19 +174,13 @@ const styles = StyleSheet.create({
     borderRightWidth: 3,
     borderRightColor: "#a1b616",
   },
-
   content: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
     padding: 18,
   },
-
-  leftSection: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
-
+  leftSection: { flexDirection: "row", alignItems: "center" },
   imageWrapper: {
     width: 60,
     height: 60,
@@ -121,35 +188,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginHorizontal: 10,
   },
-
-  image: {
-    width: 130,
-    height: 130,
-  },
-
-  textContainer: {
-    marginLeft: 16,
-  },
-
-  doctor: {
-    fontSize: 16,
-    fontWeight: "600",
-    color: "#111",
-  },
-
-  date: {
-    fontSize: 14,
-    color: "#666",
-    marginTop: 2,
-  },
-
-  time: {
-    fontSize: 20,
-    fontWeight: "600",
-    marginTop: 6,
-    color: "#000",
-  },
-
+  image: { width: 130, height: 130 },
+  textContainer: { marginLeft: 16 },
+  doctor: { fontSize: 16, fontWeight: "600", color: "#111" },
+  date: { fontSize: 14, color: "#666", marginTop: 2 },
+  time: { fontSize: 20, fontWeight: "600", marginTop: 6, color: "#000" },
   iconCircle: {
     backgroundColor: "#e7e1e1",
     width: 50,
@@ -158,12 +201,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-
-  categories: {
-    marginBottom: 25,
-  },
-
-  suggestedDoctors: {
-    paddingBottom: 30,
-  },
+  categories: { marginBottom: 25 },
+  suggestedDoctors: { paddingBottom: 30 },
 });

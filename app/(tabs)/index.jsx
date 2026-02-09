@@ -1,11 +1,21 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Pressable } from "react-native";
 import React from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
 import AvailabilityTabs from "../../components/AvailabilityTabsNavigator ";
+import { useRouter } from "expo-router";
 
 export default function Index() {
+  const router = useRouter();
+
+  const today = new Date();
+  const formattedDate = today.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "2-digit",
+  });
+
   return (
     <LinearGradient
       colors={["#4CB2B3", "#ffffff"]}
@@ -24,14 +34,17 @@ export default function Index() {
 
             <View style={styles.textContainer}>
               <Text style={styles.label}>Today</Text>
-              <Text style={styles.date}>January 08, 2026</Text>
+              <Text style={styles.date}>{formattedDate}</Text>
             </View>
           </View>
 
           {/* Right icon */}
-          <View style={styles.iconCircle}>
+          <Pressable
+            style={styles.iconCircle}
+            onPress={() => router.push("/inbox")}
+          >
             <FontAwesome name="bell" size={18} color="#121111" />
-          </View>
+          </Pressable>
         </View>
 
         <View style={{ flex: 1 }}>
@@ -41,6 +54,7 @@ export default function Index() {
     </LinearGradient>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,

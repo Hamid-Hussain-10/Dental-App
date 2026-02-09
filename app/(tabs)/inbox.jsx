@@ -24,20 +24,18 @@ export default function Inbox() {
       locations={[0.1, 1]}
       style={{ flex: 1 }}
     >
-      {/* Header */}
       <View style={styles.headContainer}>
         <Pressable style={styles.icon} onPress={() => router.push("/")}>
-          <FontAwesome name="angle-left" size={22} color="#000" />
+          <FontAwesome name="angle-left" size={22} color="#ffffff" />
         </Pressable>
 
         <Text style={styles.headerText}>My Inbox</Text>
 
         <Pressable style={styles.icon}>
-          <FontAwesome name="ellipsis-v" size={20} color="#1d1c1c" />
+          <FontAwesome name="ellipsis-v" size={20} color="#c3ff00" />
         </Pressable>
       </View>
 
-      {/* Tabs */}
       <InboxTabs data={data} onRead={markAsRead} />
     </LinearGradient>
   );
@@ -45,8 +43,8 @@ export default function Inbox() {
 
 const styles = StyleSheet.create({
   headContainer: {
-    paddingTop: 50,
-    paddingBottom: 12,
+    paddingTop: 40,
+    paddingBottom: 10,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
@@ -55,11 +53,12 @@ const styles = StyleSheet.create({
   headerText: {
     fontSize: 22,
     fontWeight: "500",
+    color: "#ffffff",
   },
   icon: {
     width: 46,
     height: 46,
-    backgroundColor: "#fff",
+    backgroundColor: "rgba(255,255,255,0.3)",
     borderRadius: 23,
     alignItems: "center",
     justifyContent: "center",

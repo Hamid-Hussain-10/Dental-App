@@ -49,7 +49,6 @@ const dentalDoctor = [
   },
 ];
 
-
 export default function Consultation() {
   const router = useRouter();
 
@@ -59,25 +58,22 @@ export default function Consultation() {
       locations={[0.1, 1]}
       style={{ flex: 1 }}
     >
-      {/* Fixed Header */}
       <View style={styles.headContainer}>
         <Pressable style={styles.icon} onPress={() => router.push("/")}>
-          <FontAwesome name="angle-left" size={22} color="#000" />
+          <FontAwesome name="angle-left" size={22} color="#ffffff" />
         </Pressable>
 
         <Text style={styles.headerText}>My Consultation</Text>
 
         <Pressable style={styles.icon}>
-          <FontAwesome name="ellipsis-v" size={20} color="#000" />
+          <FontAwesome name="ellipsis-v" size={20} color="#c3ff00" />
         </Pressable>
       </View>
 
-      {/* Scrollable Content */}
       <ScrollView
         contentContainerStyle={styles.container}
         showsVerticalScrollIndicator={false}
       >
-        {/* Lab Result */}
         <View style={styles.labResultContainer}>
           <View style={{ flex: 1 }}>
             <View style={styles.icon1}>
@@ -94,7 +90,6 @@ export default function Consultation() {
           </Pressable>
         </View>
 
-        {/* Upcoming Doctor */}
         <Text style={styles.sectionTitle}>Upcoming</Text>
 
         <View style={styles.doctorCard}>
@@ -134,7 +129,6 @@ export default function Consultation() {
           </View>
         </View>
 
-        {/* Dental Doctors */}
         <Text style={styles.sectionTitle}>Dental Doctors</Text>
 
         <FlatList
@@ -169,7 +163,7 @@ const styles = StyleSheet.create({
   },
   headContainer: {
     paddingTop: 50,
-    paddingBottom: 12,
+    paddingBottom: 16,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
@@ -178,11 +172,12 @@ const styles = StyleSheet.create({
   headerText: {
     fontSize: 22,
     fontWeight: "500",
+    color: "#ffffff",
   },
   icon: {
     width: 46,
     height: 46,
-    backgroundColor: "#fff",
+    backgroundColor: "rgba(255,255,255,0.3)",
     borderRadius: 23,
     alignItems: "center",
     justifyContent: "center",
