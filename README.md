@@ -1,4 +1,3 @@
-Here’s a clean **README.md** you can use for your project.
 
 ---
 
