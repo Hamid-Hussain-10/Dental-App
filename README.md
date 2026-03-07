@@ -1,50 +1,142 @@
-# Welcome to your Expo app 👋
+Here’s a clean **README.md** you can use for your project.
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+---
 
-## Get started
+# 🦷 Dental Care Mobile App
 
-1. Install dependencies
+A modern **Dental Consultation Mobile App** built with **React Native and Expo** that allows patients to connect with dentists, book appointments, manage medical records, and receive consultation updates from their mobile devices.
 
-   ```bash
-   npm install
-   ```
+The app provides a simple and clean interface for users to find trusted doctors, schedule consultations, and manage their dental health efficiently.
 
-2. Start the app
+---
 
-   ```bash
-   npx expo start
-   ```
+## 📱 Features
 
-In the output, you'll find options to open the app in a
+* User Authentication (Login / Signup)
+* Onboarding Screens
+* Home Dashboard with Medical Categories
+* Find and Browse Doctors
+* Suggested Doctors List
+* Doctor Profile Screen
+* Book Dental Appointments
+* View Upcoming Consultations
+* Reschedule Appointments
+* Inbox / Notifications
+* Lab Results Notifications
+* Medical History Tracking
+* Patient Profile Management
+* Payment Methods
+* Availability Status (Available / Unavailable)
+* Logout
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 📂 App Screens
 
-## Get a fresh project
+* Onboarding / Get Started
+* Login Screen
+* Home Dashboard
+* Doctor Categories (Care, Kids, Skin, Mind)
+* Suggested Doctors
+* Doctor Profile
+* Appointment Booking
+* Upcoming Consultations
+* Inbox / Notifications
+* Lab Result Screen
+* Patient Profile
+* Personal Information
+* Medical History
+* Payment Methods
 
-When you're ready, run:
+---
+
+## 🛠 Tech Stack
+
+* **React Native**
+* **Expo**
+* **React Navigation**
+
+  * Stack Navigation
+  * Bottom Tab Navigation
+* **React Native Vector Icons**
+* **Expo Linear Gradient**
+* **AsyncStorage** for local data storage
+* **REST API Integration**
+
+---
+
+## 📦 Installation
+
+1. Clone the repository
 
 ```bash
-npm run reset-project
+git clone https://github.com/yourusername/dental-care-app.git
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+2. Navigate to the project folder
 
-## Learn more
+```bash
+cd dental-care-app
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+3. Install dependencies
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```bash
+npm install
+```
 
-## Join the community
+4. Start the development server
 
-Join our community of developers creating universal apps.
+```bash
+npx expo start
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+---
+
+## ▶️ Running the App
+
+You can run the project using:
+
+* **Expo Go (Android / iOS)**
+* **Android Emulator**
+* **iOS Simulator**
+
+Scan the QR code from Expo to open the app on your device.
+
+---
+
+## 📁 Project Structure
+
+```
+src
+ ┣ components
+ ┣ screens
+ ┃ ┣ HomeScreen
+ ┃ ┣ DoctorProfile
+ ┃ ┣ Appointments
+ ┃ ┣ Inbox
+ ┃ ┣ Profile
+ ┣ navigation
+ ┣ assets
+ ┣ services
+ ┗ utils
+```
+
+---
+
+## 🎯 Future Improvements
+
+* Real-time chat with doctors
+* Video consultation
+* Online payments integration
+* Push notifications
+* Appointment reminders
+* Dark mode support
+
+---
+
+## 👨‍💻 Author
+
+Developed using **React Native & Expo** for mobile healthcare solutions.
+
+---
